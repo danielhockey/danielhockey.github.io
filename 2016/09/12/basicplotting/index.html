@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Basic plotting | Python for physics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="python,matplotlib" />
+    
+    <meta name="description" content="Matplotlib excels (lol) in it’s ability to customize literally anything you want, whereas excel does not, you’re stuck with whatever microsoft gives you.Colours, labels, 20 plots on one graph, 3 graph">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Basic plotting">
+<meta property="og:url" content="http://127.0.01/2016/09/12/basicplotting/index.html">
+<meta property="og:site_name" content="Python for physics">
+<meta property="og:description" content="Matplotlib excels (lol) in it’s ability to customize literally anything you want, whereas excel does not, you’re stuck with whatever microsoft gives you.Colours, labels, 20 plots on one graph, 3 graph">
+<meta property="og:image" content="http://127.0.01/content/1_1.jpg">
+<meta property="og:updated_time" content="2016-09-20T22:04:08.936Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Basic plotting">
+<meta name="twitter:description" content="Matplotlib excels (lol) in it’s ability to customize literally anything you want, whereas excel does not, you’re stuck with whatever microsoft gives you.Colours, labels, 20 plots on one graph, 3 graph">
+<meta name="twitter:image" content="http://127.0.01/content/1_1.jpg">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/titillium-web/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/lightgallery/css/lightgallery.min.css">
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?hexo-renderer-mathjax";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Python/">Python</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Python/Quantum-Mechanics/">Quantum Mechanics</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Python/">Python</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-basicplotting" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Basic plotting
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-subtitle">
+                <a href="/2016/09/12/basicplotting/" class="article-date">
+    <time datetime="2016-09-11T23:00:00.000Z" itemprop="datePublished">2016-09-12</time>
+</a>
+                
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/matplotlib/">matplotlib</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>Matplotlib excels (<em>lol</em>) in it’s ability to customize literally anything you want, whereas excel does not, you’re stuck with whatever microsoft gives you.<br>Colours, labels, 20 plots on one graph, 3 graphs in one image, upside down maths symbols, live 3-D graphs or contour plots, all of this plus way way more can be done with <a href="http://matplotlib.org/examples/" target="_blank" rel="external">matplotlib</a>!</p>
+<ul>
+<li>First off make sure you have all the essential packages installed with python.<ul>
+<li><strong>Numpy</strong></li>
+<li><strong>Matplotlib</strong></li>
+</ul>
+</li>
+<li>If not just type ‘<em>sudo pip3 install matploblib numpy</em>‘ in the terminal’</li>
+</ul>
+<hr>
+<h1 id="Basic-plot"><a href="#Basic-plot" class="headerlink" title="Basic plot"></a><strong>Basic plot</strong></h1><p>Define each of the variables as shown or use a list of variables. <strong>Pretty much anything will plot.</strong><br>plt.show() - Opens up and displays your plot. Without it nothing kinda happens.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"></div><div class="line">x_plot = np.linspace(<span class="number">0</span>,<span class="number">25</span>,<span class="number">1000</span>)</div><div class="line">y_plot = np.sin(<span class="number">2</span>*np.pi*x)</div><div class="line"></div><div class="line">plt.plot(x_plot, y_plot)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+<ul>
+<li>Numpys linspace function plots 1000 points from 0 to 25</li>
+</ul>
+<p><img src="/content/1_1.jpg" width="400" height="200"></p>
+<hr>
+<h1 id="Adding-some-customization"><a href="#Adding-some-customization" class="headerlink" title="Adding some customization"></a><strong>Adding some customization</strong></h1><p>Labels can be added anywhere you want and tick marks can be added or removed, the scale can be changed, literally, you can do anything (after awhile) and make it look professional.  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">plt.plot(x_plot, y_plot)</div><div class="line">plt.xlabel(<span class="string">'X-label'</span>)</div><div class="line">plt.ylabel(<span class="string">'Y-label'</span>) </div><div class="line">plt.title(<span class="string">'Sin wave plot'</span>) <span class="comment"># Title</span></div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+<p>You can even use latex formatted text if you need or want to add in mathematical symbols.<br>The axis limits can be changed using xlim() and ylim()</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">plt.plot(x_plot, y_plot, <span class="string">'-r'</span>)  <span class="comment"># RED and STRAIGHT (-) line</span></div><div class="line">plt.xlim(<span class="number">0</span>, <span class="number">10</span>) <span class="comment"># Limits the edges of the graph</span></div><div class="line">plt.ylim(<span class="number">-1.2</span>, <span class="number">1.2</span>) </div><div class="line">plt.title(<span class="string">r'$\sin(2 \pi x)$'</span>) <span class="comment"># LaTex formatting</span></div></pre></td></tr></table></figure>
+<p><img src="/content/1_2.jpg" width="400" height="200"></p>
+<p>Changing the the amount of axis labels (ticks) requires the use mticker function from matplotlib.ticker, the orientation of the tick can then be changed with a simple for loop. This is rather handy if you find your ticks overlapping on one another, especially if you’re using words inplace of number (E.g Months of the year..)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> matplotlib.ticker <span class="keyword">as</span> mticker</div><div class="line">fig = plt.figure()  <span class="comment">## Existence implied (Usually set before plotting so you can save graph at the end)</span></div><div class="line">ax1 = plt.subplot2grid((<span class="number">1</span>, <span class="number">1</span>), (<span class="number">00</span>, <span class="number">0</span>))</div><div class="line"></div><div class="line">ax1.plot(x_plot, y_plot, <span class="string">'-r'</span>)</div><div class="line"></div><div class="line">ax1.set_xticks(np.arange(<span class="number">0.0</span>, <span class="number">6</span>*np.pi, np.pi/<span class="number">2</span>)) <span class="comment"># (start, stop, step size)</span></div><div class="line">ax1.axis.set_major_locator(mticker.MaxNLocator(<span class="number">15</span>)) <span class="comment"># Amount of ticks shown</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> label <span class="keyword">in</span> ax1.axis.get_ticklabels():</div><div class="line">    label.set_rotation(<span class="number">45</span>)</div><div class="line"></div><div class="line">ax1.grid(<span class="keyword">True</span>)</div><div class="line"></div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+<ul>
+<li>It’s best to title your plots (ax1, ax2..) leads to simplicity in the long run when you’re working with multiple graphs.</li>
+<li>This changes how some functions can be called such that plt.grid(True) can be called instead as ax1.grid(True)<br><img src="/content/1_3.jpg" width="400" height="200"></li>
+</ul>
+<p>Adding another plot is fairly simple, you just create your data points and then plot it all onto the same subplot</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ax1 = plt.subplot2grid((<span class="number">1</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">0</span>))</div><div class="line"></div><div class="line">x_plot2 = np.linspace(<span class="number">0</span>,<span class="number">25</span>, <span class="number">250</span>)    </div><div class="line">y_plot2 = np.cos(x_plot2) </div><div class="line"></div><div class="line">ax1.plot(x_plot2, y_plot2, <span class="string">'.b'</span>)</div><div class="line">ax1.plot(x_plot, y_plot, <span class="string">'-r'</span>)</div></pre></td></tr></table></figure>
+<p><img src="/content/1_4.jpg" width="400" height="200"></p>
+<h2 id="Multiple-plots"><a href="#Multiple-plots" class="headerlink" title="Multiple plots"></a>Multiple plots</h2><p>This can be a pain in the ass depending on how you go about it doing it. The simplest way for me is just add some subplots make some changes and see what works.. The layout: <em>plt.subplot2grid(Dimensions,Position on figure)</em>. This works from the top left corner, down and out.<br>You can change more parameters and share the x or y axis with another plot if you want.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">ax1 = plt.subplot2grid((<span class="number">2</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">0</span>))  <span class="comment"># 2 by 1 at 0,0 position       </span></div><div class="line">ax2 = plt.subplot2grid((<span class="number">2</span>,<span class="number">1</span>),(<span class="number">1</span>,<span class="number">0</span>), sharex = ax1) <span class="comment"># 2 by 1. 1 column lower</span></div><div class="line"></div><div class="line">y_plot3 = np.tan(x_plot2)</div><div class="line">ax2.plot(x_plot2, y_plot3, <span class="string">'k'</span>)  </div><div class="line"></div><div class="line">ax2.set_ylim(<span class="number">-10</span>,<span class="number">10</span>)</div><div class="line">plt.tight_layout() <span class="comment"># Makes it neater</span></div></pre></td></tr></table></figure></p>
+<p><img src="/content/1_5.jpg" width="400" height="200"><br>In all honesty <em>subplot2grid</em> is mostly only useful with stacked plots. When it comes to plots side by side it’s probably more beneficial to use <em>fig.add_subplot()</em>, but you lose control over some of the finer details.</p>
+<p>Now to add a third pointless plot. This time a scatter plot and for data points we’ll use a randomly assigned numpy array <em>np.random.rand(number of points)</em>.<br>Then to change the limits of the third plot, so as to avoid any corner cluttering of the particles, using numpy’s min() and max()<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">ax1 = plt.subplot2grid((<span class="number">6</span>,<span class="number">1</span>), (<span class="number">0</span>,<span class="number">0</span>), colspan=<span class="number">2</span>, rowspan=<span class="number">2</span>)</div><div class="line">ax2 = plt.subplot2grid((<span class="number">6</span>,<span class="number">1</span>), (<span class="number">2</span>,<span class="number">0</span>), colspan=<span class="number">2</span>,rowspan=<span class="number">2</span>) </div><div class="line">ax3 = plt.subplot2grid((<span class="number">6</span>,<span class="number">1</span>), (<span class="number">4</span>,<span class="number">0</span>),colspan=<span class="number">2</span>,rowspan=<span class="number">2</span>)  </div><div class="line"></div><div class="line">x = np.random.rand(<span class="number">20</span>) <span class="comment"># random array of 20 points</span></div><div class="line">y = np.random.rand(<span class="number">20</span>)     </div><div class="line"></div><div class="line">ax3.scatter(x,y, s = <span class="number">45</span>) <span class="comment"># s defines the size of the scatter points</span></div><div class="line"></div><div class="line">ax3.set_xlim(x.min(),x.max()) <span class="comment"># limits x-axis according to array points  </span></div><div class="line">ax3.set_ylim(y.min(),y.max())</div></pre></td></tr></table></figure></p>
+<p><img src="/content/1_6.jpg" width="400" height="200"></p>
+<hr>
+<h2 id="End-result"><a href="#End-result" class="headerlink" title="End result"></a><strong>End result</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> matplotlib.ticker <span class="keyword">as</span> mticker</div><div class="line"></div><div class="line">fig = plt.figure()</div><div class="line">ax1 = plt.subplot2grid((<span class="number">6</span>,<span class="number">1</span>), (<span class="number">0</span>,<span class="number">0</span>), colspan=<span class="number">2</span>, rowspan=<span class="number">2</span>)</div><div class="line">ax2 = plt.subplot2grid((<span class="number">6</span>,<span class="number">1</span>), (<span class="number">2</span>,<span class="number">0</span>), colspan=<span class="number">2</span>,rowspan=<span class="number">2</span>)</div><div class="line">ax3 = plt.subplot2grid((<span class="number">6</span>,<span class="number">1</span>), (<span class="number">4</span>,<span class="number">0</span>),colspan=<span class="number">2</span>,rowspan=<span class="number">2</span>)</div><div class="line"></div><div class="line">x = np.random.rand(<span class="number">20</span>)</div><div class="line">y = np.random.rand(<span class="number">20</span>)</div><div class="line">x_plot = np.linspace(<span class="number">0</span>,<span class="number">25</span>,<span class="number">1000</span>)</div><div class="line">y_plot = np.sin(x_plot)</div><div class="line">x_plot2 = np.linspace(<span class="number">0</span>,<span class="number">25</span>, <span class="number">250</span>)</div><div class="line">y_plot2 = np.cos(x_plot2)</div><div class="line">y_plot3 = np.tan(x_plot2)</div><div class="line"></div><div class="line">ax1.plot(x_plot, y_plot, <span class="string">'-r'</span>)</div><div class="line">ax1.plot(x_plot2, y_plot2, <span class="string">'.b'</span>)</div><div class="line">ax2.plot(x_plot2, y_plot3, <span class="string">'k'</span>)</div><div class="line">ax3.scatter(x,y, s = <span class="number">45</span>)</div><div class="line"></div><div class="line"><span class="comment">#plt.xlabel('X-label')</span></div><div class="line"><span class="comment">#plt.ylabel('Y-label')</span></div><div class="line"><span class="comment">#plt.title(r'$\sin(2 \pi x)$') # LaTex formatting</span></div><div class="line"></div><div class="line">plt.xlim(<span class="number">0</span>, <span class="number">10</span>) <span class="comment"># Limits the edges of the graph</span></div><div class="line">plt.ylim(<span class="number">-1.2</span>, <span class="number">1.2</span>)</div><div class="line">ax2.set_ylim(<span class="number">-10</span>,<span class="number">10</span>)</div><div class="line">ax3.set_xlim(x.min(),x.max())</div><div class="line">ax3.set_ylim(y.min(),y.max())</div><div class="line"></div><div class="line">ax1.set_xticks(np.arange(<span class="number">0.0</span>, <span class="number">6</span>*np.pi, np.pi/<span class="number">2</span>))</div><div class="line">ax1.xaxis.set_major_locator(mticker.MaxNLocator(<span class="number">15</span>))</div><div class="line"></div><div class="line"><span class="keyword">for</span> label <span class="keyword">in</span> ax1.xaxis.get_ticklabels():</div><div class="line">    label.set_rotation(<span class="number">45</span>)</div><div class="line"></div><div class="line">plt.grid(<span class="keyword">True</span>)</div><div class="line">plt.tight_layout()</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://127.0.01/2016/09/12/basicplotting/" data-id="citc1t2ui0005egif75b7yuii" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/danielhockey" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2016/09/13/animation/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Animations with Matplotlib
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/20/blackbodyradiation/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/content/3_1.jpg)" alt="Plotting Blackbody Radiation at Various Temperatures" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Python/Quantum-Mechanics/">Quantum Mechanics</a></p>
+                            <p class="item-title"><a href="/2016/09/20/blackbodyradiation/" class="title">Plotting Blackbody Radiation at Various Temperatures</a></p>
+                            <p class="item-date"><time datetime="2016-09-19T23:00:00.000Z" itemprop="datePublished">2016-09-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/13/animation/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/content/2_1.jpeg)" alt="Animations with Matplotlib" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
+                            <p class="item-title"><a href="/2016/09/13/animation/" class="title">Animations with Matplotlib</a></p>
+                            <p class="item-date"><time datetime="2016-09-12T23:00:00.000Z" itemprop="datePublished">2016-09-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/12/basicplotting/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/content/1_1.jpg)" alt="Basic plotting" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
+                            <p class="item-title"><a href="/2016/09/12/basicplotting/" class="title">Basic plotting</a></p>
+                            <p class="item-date"><time datetime="2016-09-11T23:00:00.000Z" itemprop="datePublished">2016-09-12</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/Quantum-Mechanics/">Quantum Mechanics</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/matplotlib/">matplotlib</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quantum-mechanics/">quantum mechanics</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thermodynamics/">thermodynamics</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2016 Daniel Hockey</p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://127.0.01/2016/09/12/basicplotting/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+    
+        <script src="/vendor/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-share.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-video.min.js"></script>
+    
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
