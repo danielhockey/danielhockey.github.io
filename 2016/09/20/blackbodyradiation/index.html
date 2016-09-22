@@ -14,12 +14,12 @@
 <meta property="og:url" content="http://127.0.01/2016/09/20/blackbodyradiation/index.html">
 <meta property="og:site_name" content="Python for physics">
 <meta property="og:description" content="Back in the day (1900) some sound fella’ called Planck came along and solved the ‘ultraviolet catastrophe’, which was this big deal with not being able to achieve mathematically the same energy densit">
-<meta property="og:image" content="https://latex.codecogs.com/png.latex?B_\lambda(\lambda,T)&space;=\frac{2&space;hc^2}{\lambda^5}\frac{1}{&space;e^{\frac{hc}{\lambda&space;kT}}-1}&space;\">
-<meta property="og:updated_time" content="2016-09-22T21:07:40.439Z">
+<meta property="og:image" content="https://latex.codecogs.com/png.latex?\inline&space;\Delta&space;E&space;\propto&space;v">
+<meta property="og:updated_time" content="2016-09-22T21:11:43.992Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Plotting Blackbody Radiation at Various Temperatures">
 <meta name="twitter:description" content="Back in the day (1900) some sound fella’ called Planck came along and solved the ‘ultraviolet catastrophe’, which was this big deal with not being able to achieve mathematically the same energy densit">
-<meta name="twitter:image" content="https://latex.codecogs.com/png.latex?B_\lambda(\lambda,T)&space;=\frac{2&space;hc^2}{\lambda^5}\frac{1}{&space;e^{\frac{hc}{\lambda&space;kT}}-1}&space;\">
+<meta name="twitter:image" content="https://latex.codecogs.com/png.latex?\inline&space;\Delta&space;E&space;\propto&space;v">
     
 
     
@@ -181,12 +181,9 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p>Back in the day (1900) some sound fella’ called Planck came along and solved the ‘ultraviolet catastrophe’, which was this big deal with not being able to achieve mathematically the same energy density that was being shown experimentally. Basically at low enough frequencies all went well and the ‘classical’ spectrum approaches the experimental results, but as the frequency increases, shit goes cray and out pops infinity. And thus came the beginning of the end of all that favours reason. So Planck being a cool guy, came along and said <em>“fuck it”</em> and decided ,against his better judgement, to assume that the energy could only take on discrete (and uniform) energy values. So after tedious experimentation he found that energy packets were proportional to frequency ((\ E v \) and that those energy packets were equal to h times frequency (<span class="math inline">\(\Delta E = hv\)</span>)</p>
+            <p>Back in the day (1900) some sound fella’ called Planck came along and solved the ‘ultraviolet catastrophe’, which was this big deal with not being able to achieve mathematically the same energy density that was being shown experimentally. Basically at low enough frequencies all went well and the ‘classical’ spectrum approaches the experimental results, but as the frequency increases, shit goes cray and out pops infinity. And thus came the beginning of the end of all that favours reason. So Planck being a cool guy, came along and said <em>“fuck it”</em> and decided ,against his better judgement, to assume that the energy could only take on discrete (and uniform) energy values. So after tedious experimentation he found that energy packets were proportional to frequency (<a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\Delta&space;E&space;\propto&space;v" target="_blank"><img src="https://latex.codecogs.com/png.latex?\inline&space;\Delta&space;E&space;\propto&space;v" title="\Delta E \propto v"></a>) and that those energy packets were equal to h times frequency (<a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\Delta&space;E&space;=&space;hv" target="_blank"><img src="https://latex.codecogs.com/png.latex?\inline&space;\Delta&space;E&space;=&space;hv" title="\Delta E = hv"></a>)</p>
 <h2 id="plancks-law">Planck’s Law</h2>
 <p>The following equation is the beginning of our <em>modern</em> physics, it describes the amount of energy a black body gives off at a given temperature through different wavelengths.</p>
-<p><span class="math display">\[
-B_\lambda(\lambda,T)=\frac{2hc^2}{\lambda^5}\frac{1}{e^{\frac{hc}{\lambdakT}}-1}
-\]</span></p>
 <p><a href="https://www.codecogs.com/eqnedit.php?latex=B_\lambda(\lambda,T)&space;=\frac{2&space;hc^2}{\lambda^5}\frac{1}{&space;e^{\frac{hc}{\lambda&space;kT}}-1}&space;\" target="_blank"><img src="https://latex.codecogs.com/png.latex?B_\lambda(\lambda,T)&space;=\frac{2&space;hc^2}{\lambda^5}\frac{1}{&space;e^{\frac{hc}{\lambda&space;kT}}-1}&space;\" title="B_\lambda(\lambda,T) =\frac{2 hc^2}{\lambda^5}\frac{1}{ e^{\frac{hc}{\lambda kT}}-1} \"></a></p>
 <h2 id="setting-up-the-code">Setting up the code</h2>
 <p>To start things off it makes sense to put all of the above equation into its function as it will be called plenty of times through a variety of increasing wavelengths. The minimum range for the wavelength is set just above zero to avoid any dividing by 0 errors.</p>
@@ -216,7 +213,7 @@ B_\lambda(\lambda,T)=\frac{2hc^2}{\lambda^5}\frac{1}{e^{\frac{hc}{\lambdakT}}-1}
 
 
 
-    <a data-url="http://127.0.01/2016/09/20/blackbodyradiation/" data-id="citetz37q00053jifoup7a7xo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://127.0.01/2016/09/20/blackbodyradiation/" data-id="citeu3nny000556ifsknrg6we" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -327,7 +324,7 @@ B_\lambda(\lambda,T)=\frac{2hc^2}{\lambda^5}\frac{1}{e^{\frac{hc}{\lambdakT}}-1}
                             <a href="/2016/09/20/blackbodyradiation/" class="thumbnail">
     
     
-        <span style="background-image:url(https://latex.codecogs.com/png.latex?B_\lambda(\lambda,T)&space;=\frac{2&space;hc^2}{\lambda^5}\frac{1}{&space;e^{\frac{hc}{\lambda&space;kT}}-1}&space;\)" alt="Plotting Blackbody Radiation at Various Temperatures" class="thumbnail-image"></span>
+        <span style="background-image:url(https://latex.codecogs.com/png.latex?\inline&space;\Delta&space;E&space;\propto&space;v)" alt="Plotting Blackbody Radiation at Various Temperatures" class="thumbnail-image"></span>
     
     
 </a>
