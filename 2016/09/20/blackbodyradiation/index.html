@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Python for physics">
 <meta property="og:description" content="Back in the day (1900) some sound fella’ called Planck came along and solved the ‘ultraviolet catastrophe’, which was this big deal with not being able to achieve mathematically the same energy densit">
 <meta property="og:image" content="http://127.0.01/content/3_1.jpg">
-<meta property="og:updated_time" content="2016-09-22T20:20:44.298Z">
+<meta property="og:updated_time" content="2016-09-22T20:25:17.741Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Plotting Blackbody Radiation at Various Temperatures">
 <meta name="twitter:description" content="Back in the day (1900) some sound fella’ called Planck came along and solved the ‘ultraviolet catastrophe’, which was this big deal with not being able to achieve mathematically the same energy densit">
@@ -163,6 +163,21 @@ B_\lambda(\lambda,T) =\frac{2 hc^2}{\lambda^5}\frac{1}{ e^{\frac{hc}{\lambda kT}
 <p>Now to design a loop which plots as many unique temperature density plots as you want. In this case I choose the for the range to be 5, to avoid excess garbage. <em>plt.hold()</em> determines whether or not the previous line gets deleted ot not.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">    plt.hold(<span class="keyword">True</span>)</div><div class="line">    intensity = energy_density(wavelengths, temperature[i])</div><div class="line">    <span class="comment">## These 3 lines display the Kelvin temp directly over lines peak</span></div><div class="line">    max_y = max(intensity)  <span class="comment"># Find the maximum y value </span></div><div class="line">    max_x = (wavelengths*<span class="number">10</span>**<span class="number">8</span>)[intensity.argmax()] <span class="comment"># Find x position for y-max</span></div><div class="line">    plt.text(max_x, max_y,str(temperature[i])+<span class="string">'K'</span>)</div><div class="line">    <span class="comment">##</span></div><div class="line">    plt.plot(wavelengths*<span class="number">1e9</span>, intensity, label = (str(temperature[i])+<span class="string">'K'</span>))</div><div class="line"></div><div class="line"><span class="comment">######</span></div><div class="line"></div><div class="line">plt.xlim(<span class="number">0</span>,<span class="number">3000</span>)</div><div class="line">plt.ylabel(<span class="string">r'$B_&#123;\lambda&#125;$  $W/m^3$ '</span>) <span class="comment"># Matplotlib works with latex format :)</span></div><div class="line">plt.xlabel(<span class="string">r'$\lambda$(nm)'</span>)</div><div class="line">plt.legend()</div><div class="line"></div><div class="line">plt.show()</div></pre></td></tr></table></figure>
 <p><img src="/content/3_1.jpg" width="500" height="400"></p>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
         </div>
         <footer class="article-footer">
@@ -170,7 +185,7 @@ B_\lambda(\lambda,T) =\frac{2 hc^2}{\lambda^5}\frac{1}{ e^{\frac{hc}{\lambda kT}
 
 
 
-    <a data-url="http://127.0.01/2016/09/20/blackbodyradiation/" data-id="citesb7q00005xyif1g6q5g3t" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://127.0.01/2016/09/20/blackbodyradiation/" data-id="citesfuhc0002j6if2cv2b2qa" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -256,16 +271,6 @@ B_\lambda(\lambda,T) =\frac{2 hc^2}{\lambda^5}\frac{1}{ e^{\frac{hc}{\lambda kT}
         
 <nav id="article-nav">
     
-        <a href="/2016/09/22/mathjax/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            (no title)
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-    
     
         <a href="/2016/09/13/animation/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
@@ -284,26 +289,6 @@ B_\lambda(\lambda,T) =\frac{2 hc^2}{\lambda^5}\frac{1}{ e^{\frac{hc}{\lambda kT}
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/09/22/mathjax/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/09/22/mathjax/" class="title"></a></p>
-                            <p class="item-date"><time datetime="2016-09-22T20:17:10.259Z" itemprop="datePublished">2016-09-22</time></p>
-                        </div>
-                    </li>
                 
                     <li>
                         
