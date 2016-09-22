@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Python for physics">
 <meta property="og:description" content="Back in the day (1900) some sound fella’ called Planck came along and solved the ‘ultraviolet catastrophe’, which was this big deal with not being able to achieve mathematically the same energy densit">
 <meta property="og:image" content="http://127.0.01/content/3_1.jpg">
-<meta property="og:updated_time" content="2016-09-22T20:28:21.059Z">
+<meta property="og:updated_time" content="2016-09-22T20:33:47.367Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Plotting Blackbody Radiation at Various Temperatures">
 <meta name="twitter:description" content="Back in the day (1900) some sound fella’ called Planck came along and solved the ‘ultraviolet catastrophe’, which was this big deal with not being able to achieve mathematically the same energy densit">
@@ -154,9 +154,7 @@
             <p>Back in the day (1900) some sound fella’ called Planck came along and solved the ‘ultraviolet catastrophe’, which was this big deal with not being able to achieve mathematically the same energy density that was being shown experimentally. Basically at low enough frequencies all went well and the ‘classical’ spectrum approaches the experimental results, but as the frequency increases, shit goes cray and out pops infinity. And thus came the beginning of the end of all that favours reason. So Planck being a cool guy, came along and said <em>“fuck it”</em> and decided ,against his better judgement, to assume that the energy could only take on discrete (and uniform) energy values. So after tedious experimentation he found that energy packets were proportional to frequency ((\ E v \) and that those energy packets were equal to h times frequency (<span class="math inline">\(\Delta E = hv\)</span>)</p>
 <h2 id="plancks-law">Planck’s Law</h2>
 <p>The following equation is the beginning of our <em>modern</em> physics, it describes the amount of energy a black body gives off at a given temperature through different wavelengths.</p>
-<p><span class="math display">\[
-B_\lambda(\lambda,T) =\frac{2 hc^2}{\lambda^5}\frac{1}{ e^{\frac{hc}{\lambda kT}}-1}
-\]</span></p>
+<p><span class="math display">\[B_\lambda(\lambda,T) =\frac{2 hc^2}{\lambda^5}\frac{1}{ e^{\frac{hc}{\lambda kT}}-1}\]</span></p>
 <h2 id="setting-up-the-code">Setting up the code</h2>
 <p>To start things off it makes sense to put all of the above equation into its function as it will be called plenty of times through a variety of increasing wavelengths. The minimum range for the wavelength is set just above zero to avoid any dividing by 0 errors.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt)</div><div class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> style</div><div class="line"></div><div class="line">style.use(<span class="string">'ggplot'</span>)</div><div class="line"></div><div class="line">k_B = <span class="number">1.3807e-23</span></div><div class="line">c = <span class="number">3.0e+8</span></div><div class="line">h = <span class="number">6.6238e-34</span></div><div class="line"></div><div class="line"><span class="comment">######</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">energy_density</span><span class="params">(wavelength, temp)</span>:</span> <span class="comment">#Fairly clunky looking but its all there.</span></div><div class="line">    part_1 = <span class="number">2.0</span>*h*c**<span class="number">2</span></div><div class="line">    exponent = h*c/(wavelength*k_B*temp)</div><div class="line">    planck_e_density = part_1/((wavelength**<span class="number">5</span>)*(np.exp(exponent)<span class="number">-1.0</span>))</div><div class="line">    <span class="keyword">return</span> planck_e_density <span class="comment"># Intensity?</span></div><div class="line"></div><div class="line">wavelengths = np.arange(<span class="number">1e-9</span>,<span class="number">3e-6</span>,<span class="number">1e-9</span>) <span class="comment"># Start, stop, step size</span></div><div class="line">temperature = np.arange(<span class="number">2000</span>,<span class="number">10000</span>,<span class="number">1000</span>)</div></pre></td></tr></table></figure>
@@ -185,7 +183,7 @@ B_\lambda(\lambda,T) =\frac{2 hc^2}{\lambda^5}\frac{1}{ e^{\frac{hc}{\lambda kT}
 
 
 
-    <a data-url="http://127.0.01/2016/09/20/blackbodyradiation/" data-id="citesjozw0005kmift27h6ojy" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://127.0.01/2016/09/20/blackbodyradiation/" data-id="citesqo7i0005n2ifp0tcew6g" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
